@@ -1,4 +1,16 @@
 package com.wulianwang.lsp.activity;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.ContentUris;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
 
 public class PhotoUtils {
 
@@ -9,7 +21,7 @@ public class PhotoUtils {
      * @param imageUri    拍照后照片存储路径
      * @param requestCode 调用系统相机请求码
      */
-    public static void takePicture(Authentication activity, Uri imageUri, int requestCode) {
+    public static void takePicture(AuthActivity activity, Uri imageUri, int requestCode) {
         //调用系统相机
         Intent intentCamera = new Intent();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -68,7 +80,7 @@ public class PhotoUtils {
      * @param mContext 上下文对象
      * @return 获取图像的Bitmap
      */
-    public static Bitmap getBitmapFromUri(Uri uri, Authentication mContext) {
+    public static Bitmap getBitmapFromUri(Uri uri, AuthActivity mContext) {
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), uri);
             return bitmap;

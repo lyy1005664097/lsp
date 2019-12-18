@@ -17,6 +17,8 @@ import com.wulianwang.lsp.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView ET_img1=(ImageView) findViewById(R.id.image1);
         ImageView ET_img2=(ImageView) findViewById(R.id.image2);
         Button ET_button1=(Button)findViewById(R.id.button1);
+        Final TextView text = (TextView) findViewById(R.id.myTextView);
 
         ET_name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent1=new Intent();
-                intent1.setClass(MainActivity.this,Authentication.class);
+                intent1.setClass(MainActivity.this,AuthActivity.class);
                 MainActivity.this.startActivity(intent1);
             }
         });
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent2=new Intent();
-                intent2.setClass(MainActivity.this,Authentication.class);
+                intent2.setClass(MainActivity.this,AuthActivity.class);
                 MainActivity.this.startActivity(intent2);
             }
         });
