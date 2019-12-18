@@ -19,12 +19,12 @@ import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
+//import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import java.net.URL;
+//import java.net.URL;
 
-import okhttp3.OkHttpClient;
+//import okhttp3.OkHttpClient;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -33,7 +33,7 @@ public class AuthActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        private Handler mHandler;
+       // private Handler mHandler;
                 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.auth);

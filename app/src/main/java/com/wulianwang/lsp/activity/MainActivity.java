@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.util.Log;
+//import android.util.Log;
 import android.view.View;
 import com.wulianwang.lsp.R;
 
@@ -26,14 +26,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText ET_name=(EditText)findViewById(R.id.name);
-        EditText ET_number1=(EditText)findViewById(R.id.number1);
-        EditText ET_number2=(EditText)findViewById(R.id.number2);
-        EditText ET_number3=(EditText)findViewById(R.id.number3);
-        ImageView ET_img1=(ImageView) findViewById(R.id.image1);
-        ImageView ET_img2=(ImageView) findViewById(R.id.image2);
-        Button ET_button1=(Button)findViewById(R.id.button1);
-        Final TextView text = (TextView) findViewById(R.id.myTextView);
+        EditText ET_name=findViewById(R.id.name);
+        EditText ET_number1=findViewById(R.id.number1);
+        EditText ET_number2=findViewById(R.id.number2);
+        EditText ET_number3=findViewById(R.id.number3);
+        ImageView ET_img1=findViewById(R.id.image1);
+        ImageView ET_img2=findViewById(R.id.image2);
+        Button ET_button1=findViewById(R.id.button1);
+        Final TextView text =  findViewById(R.id.myTextView);
 
         ET_name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
