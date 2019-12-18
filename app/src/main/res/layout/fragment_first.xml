@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.FirstFragment">
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#3EBE40">
+
+        <ImageView
+            android:id="@+id/ImageView1"
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/fanhui" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="我的接单"
+            android:textSize="45sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:orientation="horizontal">
+
+        <DatePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="364dp"
+            android:layout_height="53dp"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:theme="@android:style/Theme.Holo.Light">
+
+        </DatePicker>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:src="@drawable/rili" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/anniu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/RadioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_alignParentBottom="true"
+                    android:text="已完成"
+                    android:textSize="45dp">
+
+                </RadioButton>
+                <RadioButton
+                    android:id="@+id/RadioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_alignParentBottom="true"
+                    android:text="处理中"
+                    android:textSize="45dp">
+
+                </RadioButton>
+            </RadioGroup>
+    </LinearLayout>
+</RelativeLayout>
+
+
