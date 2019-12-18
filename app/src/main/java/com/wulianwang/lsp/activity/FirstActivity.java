@@ -3,6 +3,7 @@ package com.wulianwang.lsp.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ import java.util.Date;
 public class FirstActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
     private RadioGroup radioGroup;
     private TextView tv_1;
+    ImageView mImageView01;
 
     private ImageView choRili;
     TimePickerView pvTime;
@@ -31,6 +33,7 @@ public class FirstActivity extends AppCompatActivity implements RadioGroup.OnChe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         radioGroup = (RadioGroup) findViewById(R.id.RG);
+        mImageView01 = (ImageView) findViewById(R.id.ImageView1);
         radioGroup.setOnCheckedChangeListener(this);
 
         {
@@ -49,6 +52,13 @@ public class FirstActivity extends AppCompatActivity implements RadioGroup.OnChe
                     pvTime.show();
 
 
+                }
+            });
+            mImageView01.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(FirstActivity.this,MainActivity.class);
+                    startActivity(intent);
                 }
             });
 
