@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.wulianwang.lsp.R;
+
 import java.util.LinkedList;
 
 public class Adapter extends BaseAdapter {
