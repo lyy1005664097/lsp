@@ -1,8 +1,10 @@
 package com.wulianwang.lsp.activity;
 
         import androidx.appcompat.app.AppCompatActivity;
+        import androidx.lifecycle.ViewModelProvider;
 
         import android.app.DatePickerDialog;
+        import android.content.Intent;
         import android.graphics.Color;
         import android.os.Bundle;
         import android.view.View;
@@ -25,79 +27,69 @@ package com.wulianwang.lsp.activity;
 public class MyOrderActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
     private RadioGroup radioGroup;
     private TextView tv_1;
+    ImageView mImageView01;
 
     private ImageView choRili;
-    TimePickerView pvTime;
+    int mYear;
+    int mMonth;
+    int mDay;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_order);
         radioGroup = (RadioGroup) findViewById(R.id.RG);
-        radioGroup.setOnCheckedChangeListener(this);
-
-
+        mImageView01 = (ImageView) findViewById(R.id.ImageView1);
+        //radioGroup.setOnCheckedChangeListener(this);
+        choRili=(ImageView)findViewById(R.id.cho_rili);
+        tv_1 =(TextView) findViewById(R.id.tv_1) ;
         Calendar ca = Calendar.getInstance();
-        int mYear = ca.get(Calendar.YEAR);
-        int mMonth = ca.get(Calendar.MONTH);
-        int mDay = ca.get(Calendar.DAY_OF_MONTH);
+        mYear = ca.get(Calendar.YEAR);
+        mMonth = ca.get(Calendar.MONTH);
+        mDay = ca.get(Calendar.DAY_OF_MONTH);
+        mImageView01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { finish(); }
+        });//返回上一个界面
 
-
-        choRili = findViewById(R.id.cho_rili);
         choRili.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pvTime.show();
+                //TODO 调用时间选择器
 
-
+                new DatePickerDialog(MyOrderActivity.this,onDateSetListener, mYear, mMonth, mDay).show();
             }
         });
 
-        //控制时间范围(如果不设置范围，则使用默认时间1900-2100年，此段代码可注释)
-        //因为系统Calendar的月份是从0-11的,所以如果是调用Calendar的set方法来设置时间,月份的范围也要是从0-11
-        Calendar selectedDate = Calendar.getInstance();
-        Calendar startDate = Calendar.getInstance();
-        startDate.set(2013, 0, 23);
-        Calendar endDate = Calendar.getInstance();
-        endDate.set(2029, 11, 28);
-        //时间选择器
-        pvTime = new TimePickerView.Builder(this, new TimePickerView.OnTimeSelectListener() {
-
-            @Override
-            public void onTimeSelect(Date date, View v) {//选中事件回调
-                // 这里回调过来的v,就是show()方法里面所添加的 View 参数，如果show的时候没有添加参数，v则为null
-                TextView btn = (TextView) v;
-                btn.setText(getTimes(date));
 
 
-            }
-        })
-                //年月日时分秒 的显示与否，不设置则默认全部显示
-                .setType(new boolean[]{true, true, true, false, false, false})
-                .setLabel("年", "月", "日", "时", "", "")
-                .isCenterLabel(true)
-                .setDividerColor(Color.DKGRAY)
-                .setContentSize(21)
-                .setDate(selectedDate)
-                .setRangDate(startDate, endDate)
-                .setDecorView(null)
-                .build();
 
 
     }
 
-    private String getTimes (Date date){//可根据需要自行截取数据显示
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        return format.format(date);
-    }
 
-    @Override
+
+    //@Override
+    private DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            String mYear = String.valueOf(year);
+            String mMonth = String.valueOf(monthOfYear);
+            String mDay = String.valueOf(dayOfMonth);
+
+            tv_1.setText(mYear+"-"+mMonth+"-"+mDay);
+        }
+    };
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId) {
             case R.id.RadioButton1:
-                ;
+                ;//转接处理中界面
             case R.id.RadioButton2:
-                ;
+                ;//转接已完成界面
+
         }
     }
 }
