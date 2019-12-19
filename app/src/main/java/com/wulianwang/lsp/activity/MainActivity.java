@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView ET_img1=findViewById(R.id.image1);
         ImageView ET_img2=findViewById(R.id.image2);
         Button ET_button1=findViewById(R.id.button1);
-        Final TextView text =  findViewById(R.id.myTextView);
+       //Final TextView text =  findViewById(R.id.myTextView);
 
         ET_name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent1=new Intent();
-                intent1.setClass(MainActivity.this,AuthActivity.class);
+                intent1.setClass(MainActivity.this,Main2Activity.class);
                 MainActivity.this.startActivity(intent1);
             }
         });
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent2=new Intent();
-                intent2.setClass(MainActivity.this,AuthActivity.class);
+                intent2.setClass(MainActivity.this,Main2Activity.class);
                 MainActivity.this.startActivity(intent2);
             }
         });
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent3=new Intent();
-                intent3.setClass(MainActivity.this,);
+                intent3.setClass(MainActivity.this,Main2Activity.class);
 
 
                 MainActivity.this.startActivity(intent3);
@@ -102,5 +102,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public static class Main2Activity extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main2);
+        }
     }
 }

@@ -16,8 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AuthActivity"></activity>
-        <!-- debug高德地图 -->
+        <activity android:name=".activity.Main2Activity"></activity>
+        <activity android:name=".activity.MainActivity$Main2Activity" />
+        <activity android:name=".activity.AuthActivity" /> <!-- debug高德地图 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="19dbaa1fc90141e55f8e4aa552ee9eac" />
