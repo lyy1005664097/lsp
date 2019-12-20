@@ -32,7 +32,7 @@
             >
 
             <ImageButton
-                android:id="@+id/imagebutton1"
+                android:id="@+id/imageB1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
@@ -40,7 +40,7 @@
                 android:background="#99FFCC"
 
                 android:scaleType="fitXY"
-            />    android:src="@drawable/arrow_left"/>
+                android:src="@drawable/fanhui2"/>
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
