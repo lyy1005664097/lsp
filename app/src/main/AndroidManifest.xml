@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme"
         android:networkSecurityConfig="@layout/network_security_config"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.AllServiceActivity"></activity>
+        <activity android:name=".activity.AllServiceActivity"/>
         <activity android:name=".activity.ElectricityServiceActivity" />
         <activity android:name=".activity.ProfessionalCertificationActivity" />
         <activity android:name=".activity.MyInfoActivity" />
