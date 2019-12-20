@@ -18,24 +18,15 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="42dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView1"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+        app:layout_constraintVertical_bias="0.977" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="590dp"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical"
         android:text="我们一向庄严承诺保护使用户（“用户”或“您”）的隐私。您在使用我们服务时，我们可能会收集和使用您的相关信息。
 本《隐私政策》适用于我们提供的一切我们服务。当您使用我们任何单项服务时，您同意接受本《隐私政策》以及我们在该单项服务中发出的特定隐私信息类政策条款（下列称“特定条款”）的保护，在此情况下特定条款与本政策条款同时对您产生效力。例如：使用我们在线游戏服务的用户，同时适用本《隐私政策》以及《网络游戏用户隐私权保护和个人信息利用政策》（见附件一）；又如，使用我们支付的用户，同时适用本《隐私政策》以及《我们支付隐私政策》（见附件二）。如特定条款与本《隐私政策》条款存在同类条款的不一致约定，则在特定条款约束范围内应以特定条款为准。如我们提供的某一单项服务不适用本《隐私政策》的，该服务中会以适当方式明示排除适用本《隐私政策》。
@@ -158,9 +149,21 @@ COOKIES使得我们能更好、更快地为您服务，并且使您在我们服�
 "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.71"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="42dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="47dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+
+        app:srcCompat="@drawable/fanhui2"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

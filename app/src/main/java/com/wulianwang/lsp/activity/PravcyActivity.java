@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wulianwang.lsp.R;
@@ -15,7 +16,7 @@ import com.wulianwang.lsp.R;
  * 卫星卓 李消飞 1.6
  */
 public class PravcyActivity extends AppCompatActivity {
-private ImageButton bt1;
+private ImageView bt1;
 private TextView tv9;
 
 
@@ -26,12 +27,13 @@ private TextView tv9;
         tv9 = (TextView)findViewById(R.id.textView2) ;
         tv9.setMovementMethod(ScrollingMovementMethod.getInstance());
 
-        bt1=(ImageButton)findViewById(R.id.imageButton);
+        bt1=(ImageView) findViewById(R.id.imageView6);
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(PravcyActivity.this,MainActivity.class);
-                startActivity(i);
+            //    Intent i=new Intent(PravcyActivity.this,RegisterActivity.class);
+            //    startActivity(i);
+                onBackPressed();
             }
         });
 
