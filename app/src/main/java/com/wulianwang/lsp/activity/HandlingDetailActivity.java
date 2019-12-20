@@ -2,7 +2,10 @@ package com.wulianwang.lsp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,7 +17,7 @@ import com.wulianwang.lsp.R;
  * 5.14.1 丁亚茹 聂艳艳
  */
 public class HandlingDetailActivity extends AppCompatActivity {
-    private ImageView button1,button2;
+    private ImageView button1,dianhua;
     private TextView rwxq,gzxq,zzmc,gzsj,gxnr,gzdd,lxfs,xxn,xq,jdrxx;
     private Button button;
     private EditText dd,wt,sj,wx,gh;
@@ -23,7 +26,7 @@ public class HandlingDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handling_detail);
         button1=(ImageView)findViewById(R.id.button1);
-        button2=(ImageView)findViewById(R.id.button2);
+        dianhua=(ImageView)findViewById(R.id.button2);
         rwxq=(TextView)findViewById(R.id.rwxq);
         gzxq=(TextView)findViewById(R.id.gzxq);
         zzmc=(TextView)findViewById(R.id.zzmc);
@@ -41,6 +44,45 @@ public class HandlingDetailActivity extends AppCompatActivity {
         wx=(EditText)findViewById(R.id.wx);
         gh=(EditText)findViewById(R.id.gh);
 
+
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        ImageView dianhua=findViewById(R.id.button2);
+        dianhua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:17637663098"));
+                startActivity(intent);
+            }
+        });
+
+        xq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HandlingDetailActivity.this, PersonDetailActivity.class);
+                intent.putExtra("phone", "13111111111");
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
 }
 
