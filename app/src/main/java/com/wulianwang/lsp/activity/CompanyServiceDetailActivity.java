@@ -44,17 +44,19 @@ public class CompanyServiceDetailActivity extends AppCompatActivity {
 
 
 
+
         if(flag){
             mybutton.setVisibility(View.VISIBLE);
         }else{
             mybutton.setVisibility(View.GONE);
         }
 
-            bt2.setOnClickListener(new View.OnClickListener() {
+        bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent myCallIntent = new Intent(Intent.ACTION_DIAL,
-                    Uri.parse("tel" + "1234567891"));
+                    Uri.parse("tel:" + "1234567891"));
                 startActivity(myCallIntent);
                 //点击事件
 
@@ -66,11 +68,9 @@ public class CompanyServiceDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent();
-               // i.setClass(CompanyServiceDetailActivity.this,
-               // );
+                i.setClass(CompanyServiceDetailActivity.this,MapLocationActivity.class
+                );
                 startActivity(i);
-
-
 
             }
         });
@@ -87,6 +87,7 @@ public class CompanyServiceDetailActivity extends AppCompatActivity {
         mybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
 
 
