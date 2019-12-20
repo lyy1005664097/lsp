@@ -1,6 +1,8 @@
 package com.wulianwang.lsp.bean;
 
 
+import android.widget.ImageView;
+
 /**
  *     成员：刘长恩 曹彬
  *     3.5 企业服务
@@ -9,6 +11,7 @@ package com.wulianwang.lsp.bean;
 
 public class MyList {
     private String objname;
+
     public MyList(String objname){
         super();
         this.objname=objname;
