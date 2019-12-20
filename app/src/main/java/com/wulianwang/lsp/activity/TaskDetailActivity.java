@@ -16,18 +16,24 @@ import com.wulianwang.lsp.R;
 
 /**
  * 5.13 未接任务详情 张妍妍 张玉
+ * 刚添加了接单的功能  但是可能还需要再进行修改
  */
 public class TaskDetailActivity extends AppCompatActivity {
 
     private ImageView phone;
     private ImageView ivAdress;
+    boolean flag = false;
+    private Button bt1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_task_detail);
+
+        int s = getIntent().getIntExtra("key", 0);
+
         ImageView back = findViewById(R.id.back);
+        bt1=(Button) this.findViewById(R.id.button3);
 
         ivAdress = findViewById(R.id.iv_address);
         back.setOnClickListener(new View.OnClickListener() {
@@ -55,24 +61,30 @@ public class TaskDetailActivity extends AppCompatActivity {
 
         });
 
-
-
-
         //接单
-        /*public void startActivityAfterLogin(Intent intent){
-            if (!UserManager.getInstance().isLogin()) {
-                ComponentName componentName = new ComponentName(getContext(),LoginActivity.class);
-                Intent.putExtra("className",Intent.getComponent().getClassName());
-                Intent.setComponent(componentName);
-                super.startActivity(intent);
-            } else {
-                super.startActivity(intent);
+        if(flag){
+            bt1.setVisibility(View.VISIBLE);
+            bt1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+        }else{
+            bt1.setVisibility(View.GONE);
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+        };
+        bt1=(Button) this.findViewById(R.id.button3);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
-        }*/
-
-
-    }
-
-    private class LoginActivity {
+        });
     }
 }

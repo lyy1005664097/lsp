@@ -4,6 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+    android:id="@+id/refreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:background="#2200ff00" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -12,12 +27,6 @@
     <!--* 5.12.1 未接（fragment)-->
     <!--* （不显示时间），点击任务，显示未接任务详情-->
     <!--*/-->
-
-
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 
 </FrameLayout>

@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,22 +47,27 @@ public class ElectricityCertificationActivity extends AppCompatActivity implemen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electricity_certification);
-        btn1=findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        textView = findViewById(R.id.tv);
-        headIv = findViewById(R.id.iv);
-        btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
+        EditText ET_name=findViewById(R.id.name);
+        EditText ET_number1=findViewById(R.id.number1);
+        EditText ET_number2=findViewById(R.id.number2);
+        EditText ET_number3=findViewById(R.id.number3);
+        ImageView ET_img1=findViewById(R.id.image1);
+        ImageView ET_img2=findViewById(R.id.image2);
+        Button ET_button1=findViewById(R.id.button1);
+
+        ET_img1.setOnClickListener(this);
+        ET_img2.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn1:
+            case R.id.image1:
                 intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, PICK);
                 break;
-            case R.id.btn2:
+            case R.id.image2:
                 intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, IMAGE_RESULT_CODE);
                 break;

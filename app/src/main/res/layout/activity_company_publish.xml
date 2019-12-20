@@ -28,7 +28,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="35dp"
                 android:layout_height="60dp"
-                app:srcCompat="@mipmap/black" />
+                app:srcCompat="@mipmap/back" />
 
             <TextView
                 android:id="@+id/textView"

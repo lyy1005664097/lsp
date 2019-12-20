@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-霍东芳 张会纳 5.16
--->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,21 +8,21 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
         android:background="#3EBE40">
 
         <ImageView
             android:id="@+id/ImageView1"
-            android:layout_width="44dp"
-            android:layout_height="match_parent"
-        />    android:src="@drawable/fanhui" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fanhui2" />
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:text="我的接单"
-            android:textSize="45sp" />
+            android:textSize="35sp" />
 
 
     </LinearLayout>
@@ -36,35 +32,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/title"
+        android:layout_marginTop="0dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="55dp"
+            android:layout_weight="1"
+            android:background="#8BC34A"
             android:gravity="center"
-            android:text="2019/12/20"/>
+            android:text=" "
+            android:textSize="30dp" />
 
 
         <ImageView
             android:id="@+id/cho_rili"
             android:layout_width="wrap_content"
-            android:layout_height="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
             android:gravity="center"
-        />    android:src="@drawable/rili" />
+            android:src="@mipmap/riqi" />
+
     </LinearLayout>
+
     <FrameLayout
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/frame"
         android:layout_above="@+id/anniu"
-        android:layout_below="@+id/shijian"  >
-        <ListView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text=" "/>
-    </FrameLayout>
+        android:layout_below="@+id/shijian"  />
+
 
 
     <LinearLayout
@@ -78,28 +77,29 @@
             android:id="@+id/RG"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
             android:orientation="horizontal">
-
 
             <RadioButton
                 android:id="@+id/RadioButton2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:button="@null"
                 android:text="已完成"
-                android:textSize="45dp">
+                android:textSize="25dp">
 
             </RadioButton>
+
             <RadioButton
                 android:id="@+id/RadioButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:button="@null"
                 android:text="处理中"
-                android:textSize="45dp">
+                android:textSize="25dp">
 
             </RadioButton>
         </RadioGroup>

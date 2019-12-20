@@ -12,7 +12,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <include layout="@layout/actionbar" />
 
     <RelativeLayout
@@ -257,12 +264,15 @@
             android:layout_marginLeft="80px"
             android:layout_marginTop="50px"
             android:text="负责做手机配件三两分钟就可以学会～如手机摄像图、手机后壳、手机主板，手机电池包装，百分之九十都是坐着上班，吃住都在厂里。
+
+            负责做手机配件三两分钟就可以学会～如手机摄像图、手机后壳、手机主板，手机电池包装，百分之九十都是坐着上班，吃住都在厂里。
+            负责做手机配件三两分钟就可以学会～如手机摄像图、手机后壳、手机主板，手机电池包装，百分之九十都是坐着上班，吃住都在厂里。
 "
             android:textSize="20dp" />
 
 
-    </LinearLayout>
-
-
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

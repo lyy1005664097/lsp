@@ -14,7 +14,7 @@ public class MyWorkListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_order);
+        setContentView(R.layout.activity_my_work_list);
 
         RelativeLayout tv1 = (RelativeLayout) findViewById(R.id.person);
         RelativeLayout tv2 = (RelativeLayout) findViewById(R.id.company);

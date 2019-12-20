@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/f15c58220b7e7850fa6408d500f57a34" />
+                    app:srcCompat="@drawable/back2" />
             </LinearLayout>
 
             <LinearLayout
@@ -181,7 +181,7 @@
                         android:layout_height="198dp"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
-                        android:src="@drawable/dfdcd4f3be6417f3fc999cf5cb41223a"
+                        android:src="@drawable/business_licence"
                         android:scaleType="fitXY" />
 
                     <ImageButton
@@ -191,7 +191,7 @@
                         android:layout_gravity="center|clip_vertical"
                         android:layout_marginTop="70dip"
                         android:scaleType="centerInside"
-                        app:srcCompat="@drawable/e4e8decc5c79a503576fde59898e8d3f" />
+                        app:srcCompat="@drawable/add" />
 
                     <TextView
                         android:id="@+id/textView13"

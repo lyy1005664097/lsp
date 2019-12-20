@@ -1,60 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--刘奇 冯鑫 5.5-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#ffffff">
+        android:layout_height="50dp"
+        android:background="#02534a">
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@mipmap/ic_launcher" />
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="电力认证"
+            android:textColor="#FFFFFF" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#ffffff">
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="拍照" />
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="11dp"
+            android:gravity="center_vertical"
+            android:paddingRight="10dp"
+            android:src="@drawable/fanhui2" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:background="#ffffff">
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="相册" />
+
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="11dp"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            android:text="户主信息"
+            android:textColor="#000000"
+            tools:ignore="DuplicateIds" />
+
+
     </RelativeLayout>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffffff"
+        android:hint="请输入户主姓名"
+        android:paddingLeft="20dp"
+        android:textColor="#ff000000"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/number1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffffff"
+        android:hint="请输入户主身份证号码"
+        android:paddingLeft="20dp"
+        android:textColor="#ff000000"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/number2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffffff"
+        android:hint="请输入户主联系方式"
+        android:paddingLeft="20dp"
+        android:textColor="#ff000000"
+        android:textSize="14sp"
+        tools:ignore="InvalidId" />
+
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/myTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#11000000" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="11dp"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            android:text="电表信息"
+            android:textColor="#000000"
+            tools:ignore="DuplicateIds" />
+
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/number3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffffff"
+        android:hint="请输入户号"
+        android:paddingLeft="20dp"
+        android:textColor="#ff000000"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#11000000" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/add"
+                 />
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/add"
+                />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#11000000" />
+
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:text="上传"
+        android:text="提交"
         android:textColor="#ffffffff"
         android:textSize="16sp" />
+
 
 </LinearLayout>

@@ -14,7 +14,7 @@ import com.wulianwang.lsp.R;
  * 作者：陈宏伟
  *       余小宁
 
- * 描述：5.15返回键的代码以及xml文件练级修改代码
+ * 描述：5.15返回键的代码以及xml文件连接修改代码
  *
  * */
 public class HistoryWorkActivity extends AppCompatActivity {
