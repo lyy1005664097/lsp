@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity {
 
         initData();
         initView();
-        setActionBar(false, "中智惠生活");
+        setActionBar("中智惠生活");
     }
 
     @Override

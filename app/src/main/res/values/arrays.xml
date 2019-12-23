@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="type">
+        <item></item>
+        <item>电工</item>
+        <item>维修工</item>
+    </string-array>
+</resources>

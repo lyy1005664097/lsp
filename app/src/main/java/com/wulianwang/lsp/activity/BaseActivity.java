@@ -26,29 +26,46 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+    public void setActionBar(String title){
+        setActionBar(false, title, 0, null);
+    }
+
     public void setActionBar(boolean isShowBackKey, String title){
+        setActionBar(isShowBackKey, title, 0, null);
+    }
+
+    public void setActionBar(boolean isShowBackKey, String title, int resId, View.OnClickListener listener){
         this.isShowBackKey = isShowBackKey;
 
-        ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
         View actionView = LayoutInflater.from(this).inflate(R.layout.action_view, null);
         ImageView imageView = actionView.findViewById(R.id.home);
         TextView textView = actionView.findViewById(R.id.title);
+        ImageView action = actionView.findViewById(R.id.action);
+        if(resId != 0){
+            action.setImageResource(resId);
+            action.setOnClickListener(listener);
+        }
         textView.setText(title);
         if(isShowBackKey){
             imageView.setVisibility(View.VISIBLE);
         }else{
             imageView.setVisibility(View.GONE);
         }
-        actionBar = getSupportActionBar();
-        actionBar.setCustomView(actionView, layoutParams);
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setDisplayShowCustomEnabled(true);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
+        setActionBar(actionView);
+    }
+
+    public void setActionBar(View view){
+        ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
+        actionBar = getSupportActionBar();
+        actionBar.setCustomView(view, layoutParams);
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionBar.setDisplayShowCustomEnabled(true);
     }
 
     @Override
