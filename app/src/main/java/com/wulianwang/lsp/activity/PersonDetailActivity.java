@@ -20,7 +20,7 @@ public class PersonDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_person_detail);
 
         initView();
-        setActionBar(true, "人员详情", R.drawable.phone, (View view)->{
+        setActionBar(true, "人员详情", R.drawable.ic_phone, (View view)->{
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:13100000000"));
             startActivity(intent);
