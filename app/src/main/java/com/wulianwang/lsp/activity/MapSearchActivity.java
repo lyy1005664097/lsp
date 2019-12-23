@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
@@ -14,7 +15,7 @@ import com.wulianwang.lsp.R;
 /**
  * 5.8 刘忠凯 闫亚东
  */
-public class MapSearchActivity extends AppCompatActivity {
+public class MapSearchActivity extends BaseActivity {
 
     MapView mMapView = null;
 
@@ -23,21 +24,21 @@ public class MapSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_search);
 
+        setActionBar(true, "");
+
         mMapView = (MapView) findViewById(R.id.map);
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
         mMapView.onCreate(savedInstanceState);
 
-
         AMap aMap = mMapView.getMap();
 
-        LatLng latLng = new LatLng(39.906901, 116.397972);
-
+        LatLng latLng = new LatLng(32, 114);
 
         MarkerOptions markerOptions = new MarkerOptions().position(latLng);
-        final Marker marker = aMap.addMarker(new MarkerOptions().position(latLng).title("北京").snippet("DefaultMarker"));
+        final Marker marker = aMap.addMarker(new MarkerOptions().position(latLng));
 
+        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(32, 114), 15));
     }
-
 
     @Override
     protected void onDestroy() {

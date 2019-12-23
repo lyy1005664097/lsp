@@ -10,13 +10,19 @@ import android.widget.TextView;
 
 import com.wulianwang.lsp.R;
 
-public class AllServiceActivity extends AppCompatActivity {
+public class AllServiceActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_service);
 
+        initView();
+        setActionBar(true, "服务");
+    }
+
+    @Override
+    public void initView() {
         RelativeLayout tv1 = (RelativeLayout) findViewById(R.id.person);
         RelativeLayout tv2 = (RelativeLayout) findViewById(R.id.company);
 
