@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,76 +9,73 @@
     <!--// * 1.1、首页-->
     <!--// * 张祥光、马超-->
 
-    <com.youth.banner.Banner
-        android:id="@+id/banner"
-        android:layout_width="436dp"
-        android:layout_height="180dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <!--<TextView
-            android:id="@+id/textView"
-            android:layout_width="263dp"
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="中智惠生活"
-            android:textSize="50sp" />-->
-    </com.youth.banner.Banner>
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/imageView"
-        android:layout_width="197dp"
-        android:layout_height="150dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="16dp"
-        android:text="电力服务"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner"
-    />    app:srcCompat="@drawable/电力" />
+            <Button
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:text="电力服务"
+                android:drawableTop="@drawable/shandian"/>
 
-    <Button
-        android:id="@+id/imageView2"
-        android:layout_width="191dp"
-        android:layout_height="179dp"
-        android:layout_marginEnd="16dp"
-        android:text="我的"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="1.0"
-    />    app:srcCompat="@drawable/人" />
+            <Button
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:text="任务广场"
+                android:drawableTop="@drawable/renwu"/>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/imageView3"
-        android:layout_width="190dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="任务广场"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/banner"
-    />    app:srcCompat="@drawable/任务" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/imageView5"
-        android:layout_width="201dp"
-        android:layout_height="174dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="224dp"
-        android:text="人员列表"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-      />  app:srcCompat="@drawable/双人_多人" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:text="人员列表"
+                android:drawableTop="@drawable/renwu"/>
+
+            <Button
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:text="我的"
+                android:drawableTop="@drawable/wode"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
