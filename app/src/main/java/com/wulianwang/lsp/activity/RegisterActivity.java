@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,109 +18,36 @@ import com.wulianwang.lsp.R;
 /**
  * 陈关奇、侯璐鑫 1.4
  */
-public class RegisterActivity extends AppCompatActivity {
-    private Button bt1, bt2, bt3, bt4;
-    private Button btn = null;
+public class RegisterActivity extends BaseActivity {
+    private TextView bt2, bt3, bt4;
+    private Button btn;
 
-    private CheckBox checkBox = null;
+    private CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        initView();
+        setActionBar(true, "注册");
+    }
 
+    @Override
+    public void initView() {
+        EditText et1 = (EditText) findViewById(R.id.editText);
+        EditText et2 = (EditText) findViewById(R.id.editText2);
+        EditText et3 = (EditText) findViewById(R.id.editText3);
+        EditText et4 = (EditText) findViewById(R.id.editText4);
+        EditText et5 = (EditText) findViewById(R.id.editText5);
 
-        bt1 = (Button) findViewById(R.id.button1);//id后面为上方button的id
-
-        bt1.setOnClickListener(new View.OnClickListener() {
+        btn = (Button) findViewById(R.id.button);//id后面为上方button的id
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                finish();
-            }
-        });
-
-
-
-        bt2 = (Button) findViewById(R.id.button);
-        bt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-
-                finish();
-            }
-        });
-
-        bt3 = (Button) findViewById(R.id.button4);
-        bt3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(RegisterActivity.this, PravcyActivity.class);//this前面为当前activty名称，class前面为要跳转到得activity名称
-                startActivity(intent);
-            }
-        });
-        bt4 = (Button) findViewById(R.id.button9);//id后面为上方button的id
-        bt4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(RegisterActivity.this, ServiceActivity.class);//this前面为当前activty名称，class前面为要跳转到得activity名称
-                startActivity(intent);
-            }
-        });
-
-
-        this.checkBox = (CheckBox) super.findViewById(R.id.checkBox);
-
-
-// 设置CheckBox默认不选中
-
-        this.checkBox.setFocusable(false);
-
-        this.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-
-
-            @Override
-
-            public void onCheckedChanged(CompoundButton buttonView,
-
-                                         boolean isChecked) {
-
-                if (isChecked == true) {
-
-                    btn.setClickable(true);
-
-                } else {
-
-                    btn.setClickable(false);
-
-                }
-
-            }
-
-        });
-        EditText et = (EditText) findViewById(R.id.editText2);
-        et.setInputType(InputType.TYPE_CLASS_PHONE);
-        EditText etc = (EditText) findViewById(R.id.editText5);
-        etc.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        EditText etcc = (EditText) findViewById(R.id.editText5);
-        etcc.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-
-
-
-        bt2.setOnClickListener(new View.OnClickListener() {	//给注册按钮设置监听
-
-
-            EditText editText=(EditText)findViewById(R.id.editText3);
-            EditText editTextt=(EditText)findViewById(R.id.editText4);
-
-            public void onClick(View v) {
-                String password=editText.getText().toString();//第一次输入的密码赋值给password
-                String password2=editTextt.getText().toString();//第二次输入的密码赋值给password2
+                //注册
+                String password = et3.getText().toString();//第一次输入的密码赋值给password
+                String password2 = et4.getText().toString();//第二次输入的密码赋值给password2
 
                 if (password.equals("")||password2.equals("")){	//判断两次密码是否为空
                     Toast.makeText(getApplicationContext(),"密码不能为空",Toast.LENGTH_SHORT).show();
@@ -139,12 +67,45 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        bt2 = findViewById(R.id.button2);
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //登录
+                finish();
+            }
+        });
 
+        bt3 = findViewById(R.id.button4);
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(RegisterActivity.this, PravcyActivity.class);//this前面为当前activty名称，class前面为要跳转到得activity名称
+                startActivity(intent);
+            }
+        });
+        bt4 = findViewById(R.id.button9);//id后面为上方button的id
+        bt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(RegisterActivity.this, ServiceActivity.class);//this前面为当前activty名称，class前面为要跳转到得activity名称
+                startActivity(intent);
+            }
+        });
 
-
-
-
-
+        checkBox = (CheckBox) super.findViewById(R.id.checkBox);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    btn.setEnabled(true);
+                } else {
+                    btn.setEnabled(false);
+                }
+            }
+        });
     }
 }
 
