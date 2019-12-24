@@ -17,14 +17,13 @@ import com.wulianwang.lsp.R;
  * 段天尧  叶皓明
  */
 
-public class ServiceActivity extends AppCompatActivity {
-        private ImageButton btn;
-        private TextView tv;
+public class ServiceActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
 
+        setActionBar(true, "保密政策");
     }
 }
