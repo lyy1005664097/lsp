@@ -6,20 +6,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.wulianwang.lsp.R;
 
 /**
  * 孙帅达，张世浩 5.1
  */
-public class MyInfoActivity extends AppCompatActivity {
+public class MyInfoActivity extends BaseActivity {
 
-    LinearLayout l1, l2, l3, l4, l5;
+    TextView l1, l2, l3, l4, l5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_info);
+
+        initView();
+        setActionBar(true, "我的");
+    }
+
+    @Override
+    public void initView() {
         l1 = findViewById(R.id.nameAuth);
         l1.setOnClickListener(new View.OnClickListener() {
             @Override

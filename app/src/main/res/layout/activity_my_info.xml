@@ -7,180 +7,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECEBF1"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop"
+        android:src="@drawable/me"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#2196F3"
-        android:orientation="horizontal"
-        android:paddingVertical="10dp">
+        android:text="TextView"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"/>
 
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="14dp"
-            android:layout_height="match_parent"
-         />   android:src="@drawable/z" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#2196F3"
-            android:gravity="center"
-            android:text="我的"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal"
-        android:paddingVertical="10dp">
-
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
-    </LinearLayout>
-
-    <LinearLayout
-
+    <TextView
         android:id="@+id/nameAuth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#03A9F4"
-        android:orientation="horizontal"
-        android:paddingVertical="10dp">
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text=" 实名认证"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:drawableEnd="@drawable/ic_right"
+        android:padding="10dp"/>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#03A9F4"
-            android:gravity="center"
-            android:text=" 实名认证"
-            android:textColor="#0A0A0A"
-            android:textColorLink="#03A9F4"
-            android:textSize="18sp" />
-
-        <ImageView
-
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-        />    android:src="@drawable/y" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/elecAuth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00BCD4"
-        android:orientation="horizontal"
-        android:paddingVertical="10dp">
+        android:gravity="center"
+        android:text=" 电力认证"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:drawableEnd="@drawable/ic_right"
+        android:padding="10dp"
+        android:layout_marginTop="1dp"/>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text=" 电力认证"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-        <ImageView
-
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-          />  android:src="@drawable/y" />
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
+    <TextView
         android:id="@+id/publish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#03A9F4"
-        android:orientation="horizontal"
-        android:paddingVertical="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#03A9F4"
-            android:gravity="center"
-            android:text="服务发布"
-            android:textColor="#000000"
-            android:textSize="18sp" />
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="服务发布"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:drawableEnd="@drawable/ic_right"
+        android:padding="10dp"
+        android:layout_marginTop="1dp"/>
 
-
-        <ImageView
-
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-        />    android:src="@drawable/y" />
-    </LinearLayout>
-    <LinearLayout
+    <TextView
         android:id="@+id/zhiyerenzheng"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#03A9F4"
-        android:orientation="horizontal"
-        android:paddingVertical="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#00BCD4"
-            android:gravity="center"
-            android:text="职业认证"
-            android:textColor="#000000"
-            android:textSize="18sp" />
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="职业认证"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:drawableEnd="@drawable/ic_right"
+        android:padding="10dp"
+        android:layout_marginTop="1dp"/>
 
-
-        <ImageView
-
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-        />    android:src="@drawable/y" />
-    </LinearLayout>
-    <LinearLayout
+    <TextView
         android:id="@+id/myorder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#03A9F4"
-        android:orientation="horizontal"
-        android:paddingVertical="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#03A9F4"
-            android:gravity="center"
-            android:text="我的工单"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-
-        <ImageView
-
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-       />     android:src="@drawable/y" />
-    </LinearLayout>
-
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="我的工单"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:drawableEnd="@drawable/ic_right"
+        android:padding="10dp"
+        android:layout_marginTop="1dp"/>
 
 </LinearLayout>
