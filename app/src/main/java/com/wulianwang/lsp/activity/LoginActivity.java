@@ -35,12 +35,19 @@ import okhttp3.Response;
  */
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        initView();
+        setActionBar(true, "登录");
+    }
+
+    @Override
+    public void initView() {
         Button btn = (Button)this.findViewById(R.id.button3);
         TextView tv=(TextView)this.findViewById(R.id.textView22);
         TextView tv2=(TextView)this.findViewById(R.id.textView23);
@@ -57,12 +64,12 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NotNull Call call, @NotNull IOException e) {
                         e.printStackTrace();
-                  //      Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                        //      Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                   //     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                        //     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
 
                         String responseData = response.body().string();
                         Log.d("Login", responseData);
