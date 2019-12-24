@@ -51,7 +51,7 @@ public class PersonalServiceDetailActivity extends BaseActivity {
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent x = new Intent(PersonalServiceDetailActivity.this, MapSearchActivity.class);
+                Intent x = new Intent(PersonalServiceDetailActivity.this, MapLocationActivity.class);
                 startActivity(x);
             }
 

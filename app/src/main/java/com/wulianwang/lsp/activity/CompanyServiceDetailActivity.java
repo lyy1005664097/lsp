@@ -15,85 +15,77 @@ import android.widget.TextView;
 
 
 import com.wulianwang.lsp.R;
+import com.wulianwang.lsp.bean.User;
+import com.wulianwang.lsp.util.SharedPrefsUtil;
 
 /**
  * 张春雨 杨光 3.6
  */
-public class CompanyServiceDetailActivity extends AppCompatActivity {
+public class CompanyServiceDetailActivity extends BaseActivity {
     private TextView myTextView;
     private Button mybutton,bt2;
-    private EditText et1,et2,et11,et12,et13;
-    private ImageView im1;
+    private TextView et1,et2,et11,et12,et13;
+    private ImageView im;
 
+    User user;
     boolean flag = false;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_service_detail);
-        myTextView = (TextView)this.findViewById(R.id.textView);
-        et1 = (EditText)this.findViewById(R.id.editText);
-        mybutton = (Button)this.findViewById(R.id.button);
-        bt2 = (Button)this.findViewById(R.id.button2);
-        et2 = (EditText)findViewById(R.id.editText2);
-        et11 = (EditText)findViewById(R.id.editText11);
-        et12 = (EditText)findViewById(R.id.editText12);
-        et13 = (EditText)findViewById(R.id.editText13);
-        im1 = (ImageView)findViewById(R.id.af);
 
+        initView();
+        setActionBar(true, "企业服务详情");
+    }
 
+    @Override
+    public void initData() {
+        user = SharedPrefsUtil.getValue(this, "user", (User)null);
+    }
 
-
-        if(flag){
-            mybutton.setVisibility(View.VISIBLE);
-        }else{
-            mybutton.setVisibility(View.GONE);
-        }
+    @Override
+    public void initView() {
+        myTextView = findViewById(R.id.textView);
+        et1 = findViewById(R.id.editText);
+        mybutton = findViewById(R.id.button);
+        bt2 = findViewById(R.id.button2);
+        et2 = findViewById(R.id.editText2);
+        et11 = findViewById(R.id.editText11);
+        et12 = findViewById(R.id.editText12);
+        et13 = findViewById(R.id.editText13);
+        im = findViewById(R.id.im);
 
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent myCallIntent = new Intent(Intent.ACTION_DIAL,
-                    Uri.parse("tel:" + "1234567891"));
+                        Uri.parse("tel:" + "1234567891"));
                 startActivity(myCallIntent);
                 //点击事件
-
-
             }
         });
-
-        et13.setOnClickListener(new View.OnClickListener() {
+        im.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent();
                 i.setClass(CompanyServiceDetailActivity.this,MapLocationActivity.class
                 );
                 startActivity(i);
-
-            }
-        });
-
-        im1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-
-
-
             }
         });
         mybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-
-
-
             }
         });
 
+        if(user != null){
+            mybutton.setVisibility(View.VISIBLE);
+        }else{
+            mybutton.setVisibility(View.GONE);
+        }
     }
 }

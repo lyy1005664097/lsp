@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
@@ -19,7 +20,7 @@ import com.wulianwang.lsp.R;
  *     在地图中显示工单地点
  */
 
-public class MapLocationActivity extends AppCompatActivity {
+public class MapLocationActivity extends BaseActivity {
 
     MapView mMapView = null;
     private Button button;
@@ -30,26 +31,19 @@ public class MapLocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_location);
 
+        setActionBar(true, "");
+
         mMapView = (MapView) findViewById(R.id.map);
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
         mMapView.onCreate(savedInstanceState);
         AMap aMap = mMapView.getMap();
 
-        LatLng latLng = new LatLng(39.906901, 116.397972);
-
+        LatLng latLng = new LatLng(32, 114);
 
         MarkerOptions markerOptions = new MarkerOptions().position(latLng);
-        final Marker marker = aMap.addMarker(new MarkerOptions().position(latLng).title("北京").snippet("DefaultMarker"));
+        final Marker marker = aMap.addMarker(new MarkerOptions().position(latLng));
 
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-
+        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(32, 114), 15));
     }
 
 
