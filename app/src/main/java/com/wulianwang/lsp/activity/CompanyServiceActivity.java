@@ -23,7 +23,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wulianwang.lsp.R;
 import com.wulianwang.lsp.adapter.RecyclerAdapter;
 import com.wulianwang.lsp.bean.MyList;
-import com.wulianwang.lsp.adapter.MyListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -21,12 +21,10 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wulianwang.lsp.R;
-import com.wulianwang.lsp.adapter.ItemAdapter;
 import com.wulianwang.lsp.adapter.RecyclerAdapter;
 import com.wulianwang.lsp.bean.Itemview;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

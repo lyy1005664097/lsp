@@ -30,7 +30,6 @@ import com.wulianwang.lsp.R;
 import com.wulianwang.lsp.activity.PeopleListActivity;
 import com.wulianwang.lsp.activity.TaskDetailActivity;
 import com.wulianwang.lsp.adapter.AnimalAdapter;
-import com.wulianwang.lsp.adapter.MyListAdapter;
 import com.wulianwang.lsp.bean.Animal;
 
 import java.util.ArrayList;
