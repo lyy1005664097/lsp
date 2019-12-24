@@ -7,54 +7,32 @@
     android:orientation="vertical"
     tools:context=".activity.AllServiceActivity">
 
-    <RelativeLayout
+    <TextView
         android:id="@+id/person"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="个人服务"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_alignParentStart="true"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_right"
-            android:layout_alignParentEnd="true"/>
-
-    </RelativeLayout>
+        android:text="个人服务"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:drawableEnd="@drawable/ic_right"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
 
-    <RelativeLayout
+    <TextView
         android:id="@+id/company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="企业服务"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_alignParentStart="true"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_right"
-            android:layout_alignParentEnd="true"/>
-
-    </RelativeLayout>
+        android:text="企业服务"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:drawableEnd="@drawable/ic_right"/>
 
     <View
         android:layout_width="match_parent"

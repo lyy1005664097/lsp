@@ -23,8 +23,8 @@ public class AllServiceActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        RelativeLayout tv1 = (RelativeLayout) findViewById(R.id.person);
-        RelativeLayout tv2 = (RelativeLayout) findViewById(R.id.company);
+        TextView tv1 = findViewById(R.id.person);
+        TextView tv2 = findViewById(R.id.company);
 
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
