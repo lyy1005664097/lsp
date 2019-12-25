@@ -46,6 +46,7 @@ public class PersonalCertificateActivity extends BaseActivity {
     String[] names = new String[]{"output_image1.jpg", "output_image2.jpg", "output_image3.jpg"};
     Uri[] uris = new Uri[3];
     int i=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
