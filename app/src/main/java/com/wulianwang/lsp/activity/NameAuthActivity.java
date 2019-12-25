@@ -4,20 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wulianwang.lsp.R;
 
-public class NameAuthActivity extends AppCompatActivity {
+public class NameAuthActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_auth);
 
-        RelativeLayout tv1 = (RelativeLayout) findViewById(R.id.person);
-        RelativeLayout tv2 = (RelativeLayout) findViewById(R.id.company);
+        initView();
+        setActionBar(true, "实名认证");
+    }
+
+    @Override
+    public void initView() {
+        TextView tv1 = findViewById(R.id.person);
+        TextView tv2 = findViewById(R.id.company);
 
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
