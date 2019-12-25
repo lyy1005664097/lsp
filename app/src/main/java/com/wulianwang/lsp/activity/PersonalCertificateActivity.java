@@ -42,8 +42,6 @@ import java.io.FileNotFoundException;
  */
 public class PersonalCertificateActivity extends BaseActivity {
     static final int TAKE_PHOTO=1;
- //   ImageView  picture;
- //   Uri imageUri1,imageUri2,imageUri3;
     ImageView[] imbt = new ImageView[3];
     String[] names = new String[]{"output_image1.jpg", "output_image2.jpg", "output_image3.jpg"};
     Uri[] uris = new Uri[3];
