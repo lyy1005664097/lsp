@@ -4,20 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wulianwang.lsp.R;
 
-public class MyWorkListActivity extends AppCompatActivity {
+public class MyWorkListActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_work_list);
 
-        RelativeLayout tv1 = (RelativeLayout) findViewById(R.id.person);
-        RelativeLayout tv2 = (RelativeLayout) findViewById(R.id.company);
+        initView();
+        setActionBar(true, "我的工单");
+    }
+
+    @Override
+    public void initView() {
+        TextView tv1 = findViewById(R.id.person);
+        TextView tv2 = findViewById(R.id.company);
 
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
