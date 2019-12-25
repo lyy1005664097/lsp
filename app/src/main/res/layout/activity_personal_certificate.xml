@@ -1,152 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--许浒 李鹏 5.3-->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    android:layout_height="match_parent">
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="#CFB53B"
+            android:text="@string/person_name_auth"
+            android:textSize="16sp"
+            android:padding="10dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="个人信息"
+            android:textSize="16sp"
+            android:padding="10dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入您的姓名"
+            android:padding="10dp"
+            android:inputType="textPersonName" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入您的身份证号码"
+            android:padding="10dp"
+            android:inputType="number" />
 
-                        <ImageButton
-                            android:id="@+id/imageButton6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="#00BCD4"
-                            app:srcCompat="@drawable/fanhui2" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="身份证照片"
+            android:padding="10dp"
+            android:textSize="16sp"/>
 
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_weight="10"
-                            android:background="#00BCD4"
-                            android:text="个人认证"
-                            android:textAlignment="center"
-                            android:textSize="18sp" />
+        <ImageView
+            android:id="@+id/imageButton"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shenfenzhengzhengmian"
+            android:scaleType="centerCrop"/>
 
-                    </LinearLayout>
-                </LinearLayout>
+        <ImageView
+            android:id="@+id/imageButton2"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shenfenzhengfanmian"
+            android:scaleType="centerCrop" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageButton3"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shouchishenfenzheng1"
+            android:scaleType="centerCrop" />
 
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_weight="1"
-                        android:background="#CFB53B"
-                        android:text="为什么要进行实名认证？\n应主管部门和相关规定要求,需如实登记使用软件者的身份信息；仅会将您的信息用于身份认证，不会用作其他用途。"
-                        android:textSize="18sp" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_end"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:text="提交"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"/>
 
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="个人信息" />
+    </LinearLayout>
 
-                    <EditText
-                        android:id="@+id/editText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="请输入您的姓名"
-                        android:inputType="textPersonName" />
-
-                    <EditText
-                        android:id="@+id/editText3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="请输入您的身份证号码"
-                        android:inputType="number" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="身份证照片" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/shenfenzhengzhengmian"
-                        app:srcCompat="@android:drawable/ic_input_add" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton2"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/shenfenzhengfanmian"
-                        app:srcCompat="@android:drawable/ic_input_add" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton3"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/shouchishenfenzheng1"
-                        app:srcCompat="@android:drawable/ic_input_add" />
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_weight="1"
-                        android:background="@drawable/btn_end"
-                        android:text="提交" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
