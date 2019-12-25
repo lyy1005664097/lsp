@@ -120,5 +120,7 @@ public class MainActivity extends BaseActivity {
             isLogin = true;
             im4.setText("我的");
         }
+
+        isLogin = true;
     }
 }
