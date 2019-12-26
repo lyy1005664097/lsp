@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">lsp</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="t1">您在申请本服务过程中，需要填写一些必要的信息，请保持这些信息的及时更新，以便腾讯向您提供帮助，或更好地为您提供服务。  若国家法律法规有特殊规定的，您需要填写真实的身份信息。若您填写的信息不完整或不准确，则可能无法使用服务或在使用过程中受到限制您在使用本服务时不得利用本服务从事以下行为，包括但不限于：
     （1）发布、传送、传播、储存违反国家法律、危害国家安全统一、社会稳定、公序良俗、社会公德以及侮辱、诽谤、淫秽、暴力的内容；
     （2）发布、传送、传播、储存侵害他人名誉权、肖像权、知识产权、商业秘密等合法权利的内容；
