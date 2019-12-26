@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
 
+import android.os.Handler;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -30,6 +31,7 @@ import com.wulianwang.lsp.R;
 import com.wulianwang.lsp.activity.PeopleListActivity;
 import com.wulianwang.lsp.activity.TaskDetailActivity;
 import com.wulianwang.lsp.adapter.AnimalAdapter;
+import com.wulianwang.lsp.adapter.RecyclerAdapter;
 import com.wulianwang.lsp.bean.Animal;
 
 import java.util.ArrayList;
@@ -45,21 +47,16 @@ import java.util.Map;
  */
 
 
-public class FragmentTab1 extends Fragment  implements AdapterView.OnItemClickListener {
+public class FragmentTab1 extends Fragment {
 
-    private List<Animal> mData = null;
-    private Context mContext;
-    private AnimalAdapter mAdapter = null;
-    private ListView list_animal;
     SmartRefreshLayout refreshLayout;
     RecyclerView recyclerView;
 
     private List<Map<String, String>> initDta;
-    private List<Map<String, String>> list;
+    private List<Map<String, String>> list = new ArrayList<>();
     private LinearLayoutManager linearLayoutManager;
-    //MyListAdapter adapter;
-    MyListAdapter adapter;
-
+    RecyclerAdapter<Map<String, String>> adapter;
+    int page = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,15 +75,15 @@ public class FragmentTab1 extends Fragment  implements AdapterView.OnItemClickLi
         refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                list.addAll(initDta);
-                adapter.notifyDataSetChanged();
+                page++;
+                initData();
                 refreshLayout.finishLoadMore(true);
             }
 
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                list = initDta;
-                adapter.notifyDataSetChanged();
+                page = 1;
+                initData();
                 refreshLayout.finishRefresh(true);
             }
         });
@@ -94,75 +91,47 @@ public class FragmentTab1 extends Fragment  implements AdapterView.OnItemClickLi
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        list = initDta;
-        adapter = new MyListAdapter(list, R.layout.person_item);
+        adapter = new RecyclerAdapter<Map<String, String>>(list, R.layout.person_item, (RecyclerView.ViewHolder holder, Map<String, String> data, int position) -> {
+            TextView textView1 = (TextView) holder.itemView.findViewById(R.id.textView);
+            TextView textView2 = (TextView) holder.itemView.findViewById(R.id.textView2);
+            TextView textView4 = (TextView) holder.itemView.findViewById(R.id.textView4);
+            textView1.setText(data.get("title"));
+            textView2.setText(data.get("data"));
+            textView4.setText(data.get("data2"));
+
+            holder.itemView.setOnClickListener(view1 -> {
+                Toast.makeText(getActivity(), "你点击了第" + position + "项", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), TaskDetailActivity.class);
+                intent.putExtra("key", position);
+                intent.putExtra("key2", "xxx");
+                startActivity(intent);
+            });
+        });
         recyclerView.setAdapter(adapter);
 
         return view;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(mContext, "你点击了第" + position + "项", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getActivity(), TaskDetailActivity.class);
-        intent.putExtra("key", position);
-        intent.putExtra("key2", "xxx");
-        startActivity(intent);
-    }
-
-
     private void initData() {
         initDta = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Map<String, String> map = new HashMap<>();
-            map.put("title", "title" + i);
-            map.put("data", "data" + i);
-            map.put("data2", "data2" + i);
-            initDta.add(map);
-        }
+
+        //模拟网络请求
+        new Handler().postDelayed(() -> {
+            for (int i = 0; i < 10; i++) {
+                Map<String, String> map = new HashMap<>();
+                map.put("title", "title" + i);
+                map.put("data", "data" + i);
+                map.put("data2", "data2" + i);
+                initDta.add(map);
+            }
+
+            if(page ==1){
+                list = initDta;
+            }else {
+                list.addAll(initDta);
+            }
+            adapter.setList(list);
+            adapter.notifyDataSetChanged();
+        }, 200);
     }
-
-    static class MyListAdapter<T> extends RecyclerView.Adapter {
-
-        List<T> list;
-        int resId;
-
-        MyListAdapter(List<T> list, int resId) {
-            this.list = list;
-            this.resId = resId;
-        }
-
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new RecyclerView.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(resId, parent, false)) {
-            };
-        }
-
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            Map<String, String> map = (Map<String, String>) list.get(position);
-            TextView textView1 = (TextView) holder.itemView.findViewById(R.id.textView);
-            TextView textView2 = (TextView) holder.itemView.findViewById(R.id.textView2);
-            TextView textView4 = (TextView) holder.itemView.findViewById(R.id.textView4);
-            textView1.setText(map.get("title"));
-            textView2.setText(map.get("data"));
-            textView4.setText(map.get("data2"));
-        }
-
-        @Override
-        public int getItemCount() {
-            return list.size();
-        }
-
-        void refresh(List<T> list) {
-            this.list.clear();
-            this.loadMore(list);
-        }
-
-        void loadMore(List<T> list) {
-            this.list.addAll(list);
-            this.notifyDataSetChanged();
-        }
-    }
-
 }

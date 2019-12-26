@@ -10,91 +10,72 @@
     <!--刘海帆、范王娟-->
     <!--我的发布、3个fragment-->
 
-    <!-- TODO: Update blank Linear layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="53dp">
-
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="53dp"
-            android:background="#20B2AA"
-            android:layout_gravity="left"
-            android:src="?attr/homeAsUpIndicator" />
-
-        <TextView
-            android:id="@+id/textview1"
-            android:layout_width="fill_parent"
-            android:layout_height="53dp"
-            android:textSize="20sp"
-            android:background="#20B2AA"
-            android:gravity="center"
-            android:text="我的发布" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical">
         <TextView
             android:id="@+id/textview2"
-            android:gravity="left"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"/>
+        <ImageView
+            android:id="@+id/imageButton2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_date"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/RG"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radiobutton1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:padding="10dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="未接"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_selector"/>
+        <RadioButton
+            android:id="@+id/radiobutton2"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:padding="10dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="处理中"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_selector"/>
+        <RadioButton
+            android:id="@+id/radiobutton3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="已完成"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_selector"/>
+    </RadioGroup>
 
-            android:layout_weight="7"
-            android:background="@drawable/riqi"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-            <FrameLayout
-                android:id="@+id/fragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-            </FrameLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="10">
-                <RadioGroup
-                    android:id="@+id/RG"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/radiobutton1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:text="未接"
-                    android:textSize="15sp"/>
-                <RadioButton
-                    android:id="@+id/radiobutton2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:background="#ffffff"
-                    android:text="处理中"
-                    android:textSize="15sp"/>
-                <RadioButton
-                    android:id="@+id/radiobutton3"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:background="#ffffff"
-                    android:layout_weight="1"
-                    android:text="已完成"
-                    android:textSize="15sp"/>
-                </RadioGroup>
-            </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

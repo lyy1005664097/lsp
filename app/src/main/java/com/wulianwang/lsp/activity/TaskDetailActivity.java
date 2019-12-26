@@ -11,43 +11,35 @@ import android.view.Window;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.wulianwang.lsp.R;
 
 /**
  * 5.13 未接任务详情 张妍妍 张玉
  */
-public class TaskDetailActivity extends AppCompatActivity {
+public class TaskDetailActivity extends BaseActivity {
 
     private ImageView phone;
-    private ImageView ivAdress;
+    private TextView ivAdress;
     boolean flag = false;
     private Button bt1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_task_detail);
-        ImageView back = findViewById(R.id.back);
+
+        initView();
+        setActionBar(true, "任务详情");
+    }
+
+    @Override
+    public void initView() {
+
         bt1=(Button) this.findViewById(R.id.button3);
 
-        ivAdress = findViewById(R.id.iv_address);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        ivAdress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-         //       Intent intent = new Intent(renwuxiangqing.this,MainActivity.class);
-        //        startActivity(intent);
-            }
-        });
-
-//跳转到打电话
+        //跳转到打电话
         ImageView phone = findViewById(R.id.imageView2);
         phone.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -58,8 +50,11 @@ public class TaskDetailActivity extends AppCompatActivity {
 
         });
 
-
-
+        ivAdress = findViewById(R.id.textView15);
+        ivAdress.setOnClickListener(view -> {
+            Intent intent = new Intent(TaskDetailActivity.this, MapLocationActivity.class);
+            startActivity(intent);
+        });
 
         //接单
         if(flag){
@@ -70,21 +65,8 @@ public class TaskDetailActivity extends AppCompatActivity {
                 }
             });
 
-          }else{
+        }else{
             bt1.setVisibility(View.GONE);
-            back.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-
-                }
-            });
         };
-        bt1=(Button) this.findViewById(R.id.button3);
-        bt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });}
+    }
 }

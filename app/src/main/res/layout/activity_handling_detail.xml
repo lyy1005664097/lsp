@@ -1,215 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--5.14.1 丁亚茹 聂艳艳-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="80dp"
-                    android:background="#AFEEEE"
-                    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
-                <ImageView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-                    android:id="@+id/button1"
-                    android:layout_width="70dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/chexiao"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gzmc"
+                android:text="工作名称："
+                android:textSize="16sp" />
 
-                 <TextView
-
-
-                android:layout_width="match_parent"
-                android:id="@+id/rwxq"
-                android:layout_height="70dp"
-                android:gravity="center"
-                android:text="任务详情"
-                android:textSize="40sp" />
-                </LinearLayout>
-
-            <LinearLayout
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:id="@+id/gh"
+                android:enabled="false"
+                android:hint="更换家庭灯泡" />
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/gzmc"
-                        android:text="工作名称："
-                        android:textSize="30sp" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/gh"
-                        android:hint="更换家庭灯泡" />
-
-                </LinearLayout>
-
-                <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gzlx"
+                android:text="工作类型："
+                android:textSize="16sp" />
+            <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:id="@+id/wx"
+                android:enabled="false"
+                android:hint="水电维修" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/gzlx"
-                    android:text="工作类型："
-                    android:textSize="30sp" />
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/wx"
-                    android:hint="水电维修" />
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-            <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gzsj"
+                android:text="工作时间："
+                android:textSize="16sp" />
+
+            <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:id="@+id/sj"
+                android:enabled="false"
+                android:hint="2018-08-08" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/gzsj"
-                    android:layout_gravity="left"
-                    android:text="工作时间："
-                    android:textSize="30sp" />
+        </LinearLayout>
 
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/sj"
-                    android:hint="2018-08-08" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gznr"
+                android:text="工作内容："
+                android:textSize="16sp" />
 
-            <LinearLayout
+            <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:id="@+id/wt"
+                android:enabled="false"
+                android:hint="家庭线路老化，需要进行更换。" />
 
-                <TextView
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/gznr"
-                    android:text="工作内容:"
-                    android:textSize="30dp" />
+        </LinearLayout>
 
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/wt"
-                    android:hint="家庭线路老化，需要进行更换。" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gzdd"
+                android:text="工作地点："
+                android:textSize="16sp" />
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/gzdd"
-                    android:text="工作地点:"
-                    android:textSize="30dp" />
-
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/dd"
-                    android:hint="信阳市平桥区信阳农林学院1A403" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
+            <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:id="@+id/dd"
+                android:enabled="false"
+                android:hint="信阳市平桥区信阳农林学院1A403" />
 
-                <TextView
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/lxfs"
-                    android:text="联系方式:"
-                    android:textSize="30dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/xxn"
-                    android:text="小仙女/13123546852"
-                    android:textSize="30dp" />
-
-                <ImageView
-
-                    android:id="@+id/button2"
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="right"
-                    android:src="@drawable/dianhua" />
-
-            </LinearLayout>
-            </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="160dp"
-            android:layout_height="50dp"
-            android:id="@+id/jdrxx"
-            android:text="接单人信息:"
-            android:textSize="30dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:padding="10dp"
+            android:id="@+id/lxfs"
+            android:text="联系方式:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/xxn"
+            android:padding="10dp"
+            android:text="小仙女/13123546852"
+            android:textSize="16sp"
+            android:drawableEnd="@drawable/dianhua"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/jdrxx"
+            android:padding="10dp"
+            android:text="接单人信息:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/xq"
+            android:padding="10dp"
             android:text="小Q/13123546852"
-            android:textSize="30dp" />
+            android:textSize="16sp"
+            android:drawableEnd="@drawable/ic_right"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="接单"
+            android:textSize="18sp"
+            android:background="#1E90FF"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"/>
 
     </LinearLayout>
-
-                <Button
-
-                    android:id="@+id/button"
-                    android:layout_width="90dp"
-                    android:layout_height="50dp"
-                    android:text="接单"
-                    android:textSize="25dp"
-                    android:background="#1E90FF"
-                    android:layout_gravity="center"
-                    />
-
-        </LinearLayout>
+</ScrollView>
 
