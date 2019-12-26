@@ -5,103 +5,71 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#3EBE40">
-
-        <ImageView
-            android:id="@+id/ImageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/fanhui2" />
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="我的接单"
-            android:textSize="35sp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/shijian"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/title"
-        android:layout_marginTop="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="10dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#8BC34A"
-            android:gravity="center"
-            android:text=" "
-            android:textSize="30dp" />
+            android:text=""
+            android:textSize="16sp" />
 
 
         <ImageView
             android:id="@+id/cho_rili"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right"
-            android:gravity="center"
-            android:src="@mipmap/riqi" />
+            android:src="@drawable/ic_date" />
 
     </LinearLayout>
 
     <FrameLayout
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:id="@+id/frame"
-        android:layout_above="@+id/anniu"
+        android:layout_above="@+id/RG"
         android:layout_below="@+id/shijian"  />
 
-
-
-    <LinearLayout
-        android:id="@+id/anniu"
+    <RadioGroup
+        android:id="@+id/RG"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
 
-        <RadioGroup
-            android:id="@+id/RG"
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/RadioButton1"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:padding="10dp"
+            android:text="处理中"
+            android:textColor="@color/text_color_selector"
+            android:textSize="18sp">
 
-            <RadioButton
-                android:id="@+id/RadioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:button="@null"
-                android:text="已完成"
-                android:textSize="25dp">
+        </RadioButton>
 
-            </RadioButton>
+        <RadioButton
+            android:id="@+id/RadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:padding="10dp"
+            android:text="已完成"
+            android:textColor="@color/text_color_selector"
+            android:textSize="18sp">
 
-            <RadioButton
-                android:id="@+id/RadioButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:button="@null"
-                android:text="处理中"
-                android:textSize="25dp">
+        </RadioButton>
+    </RadioGroup>
 
-            </RadioButton>
-        </RadioGroup>
-    </LinearLayout>
 </RelativeLayout>

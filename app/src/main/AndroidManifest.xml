@@ -54,13 +54,8 @@
         <activity android:name=".activity.CompanyServiceDetailActivity" />
         <activity android:name=".activity.ElectricityCertificationActivity" />
         <activity android:name=".activity.ForgetPasswordActivity" />
-        <activity android:name=".activity.HandlingDetailActivity" >
-
-        </activity>
-        <activity android:name=".activity.HistoryWorkActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-        </activity>
+        <activity android:name=".activity.HandlingDetailActivity" />
+        <activity android:name=".activity.HistoryWorkActivity"/>
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.MapLocationActivity" />
         <activity android:name=".activity.MapSearchActivity" />

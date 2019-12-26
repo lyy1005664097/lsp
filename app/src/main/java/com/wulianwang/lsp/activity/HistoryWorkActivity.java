@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.wulianwang.lsp.R;
@@ -17,27 +18,22 @@ import com.wulianwang.lsp.R;
  * 描述：5.15返回键的代码以及xml文件连接修改代码
  *
  * */
-public class HistoryWorkActivity extends AppCompatActivity {
+public class HistoryWorkActivity extends BaseActivity {
 
-    private TextView elect;
-    private ImageView back;
-
-
+    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_work);
-        elect = findViewById(R.id.elect);
-        back = findViewById(R.id.back);
 
-        elect.setText("工作详情");
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        initView();
+        setActionBar(true, "任务详情");
+    }
 
+    @Override
+    public void initView() {
+        ratingBar = findViewById(R.id.ratingBar);
+        ratingBar.setRating((float)3.5);
     }
 }

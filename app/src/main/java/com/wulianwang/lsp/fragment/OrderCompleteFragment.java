@@ -8,7 +8,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +19,16 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wulianwang.lsp.R;
+import com.wulianwang.lsp.activity.HistoryWorkActivity;
 import com.wulianwang.lsp.activity.MainActivity;
+import com.wulianwang.lsp.activity.TaskDetailActivity;
+import com.wulianwang.lsp.adapter.RecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,86 +40,83 @@ import java.util.Map;
  */
 public class OrderCompleteFragment extends Fragment {
 
-    List<Map<String, String>> list = new ArrayList<>();
+    SmartRefreshLayout refreshLayout;
+    RecyclerView recyclerView;
+    private List<Map<String, String>> initDta;
+    private List<Map<String, String>> list = new ArrayList<>();
+    private LinearLayoutManager linearLayoutManager;
+    RecyclerAdapter<Map<String, String>> adapter;
+    int page = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view;
         view = inflater.inflate(R.layout.fragment_order_complete, container, false);
-        ListView listView = view.findViewById(R.id.listview);
+        initData();
+        refreshLayout = (SmartRefreshLayout) view.findViewById(R.id.refreshLayout);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                page++;
+                initData();
+                refreshLayout.finishLoadMore(true);
+            }
 
-        getData();
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                page = 1;
+                initData();
+                refreshLayout.finishRefresh(true);
+            }
+        });
 
-        NewAdapter adapter = new NewAdapter(getActivity(), R.layout.jd_ywc_item, list);
-        listView.setAdapter(adapter);
+        linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        adapter = new RecyclerAdapter<Map<String, String>>(list, R.layout.person_item, (RecyclerView.ViewHolder holder, Map<String, String> data, int position) -> {
+            TextView textView1 = (TextView) holder.itemView.findViewById(R.id.textView);
+            TextView textView2 = (TextView) holder.itemView.findViewById(R.id.textView2);
+            TextView textView4 = (TextView) holder.itemView.findViewById(R.id.textView4);
+            textView1.setText(data.get("title"));
+            textView2.setText(data.get("data"));
+            textView4.setText(data.get("data2"));
+
+            holder.itemView.setOnClickListener(view1 -> {
+                Toast.makeText(getActivity(), "你点击了第" + position + "项", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), HistoryWorkActivity.class);
+                intent.putExtra("key", position);
+                intent.putExtra("key2", "xxx");
+                startActivity(intent);
+            });
+        });
+        recyclerView.setAdapter(adapter);
 
         return view;
     }
 
-    private void getData(){
-        Map<String, String> map1 = new HashMap<>();
-        map1.put("title", "title1");
-        map1.put("value", "content");
-        list.add(map1);
-        Map<String, String> map2 = new HashMap<>();
-        map2.put("title", "title1");
-        map2.put("value", "content");
-        list.add(map2);
-    }
+    private void initData() {
+        initDta = new ArrayList<>();
 
-    class NewAdapter<T> extends ArrayAdapter{
-
-        private Context context;
-        private int resId;
-        private List<T> list;
-
-        public NewAdapter(@NonNull Context context, int resource, @NonNull List objects) {
-            super(context, resource, objects);
-            this.context = context;
-            this.resId = resource;
-            this.list = objects;
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            Map<String, String> map = (Map<String, String>)getItem(position);
-            View view;
-            ViewHolder holder;
-            if(convertView == null){
-                view = getLayoutInflater().inflate(resId, null);
-                holder = new ViewHolder();
-                holder.layout = view.findViewById(R.id.item);
-                holder.title = view.findViewById(R.id.title);
-                holder.content = view.findViewById(R.id.content);
-                view.setTag(holder);
-            }else {
-                view = convertView;
-                holder = (ViewHolder) view.getTag();
+        //模拟网络请求
+        new Handler().postDelayed(() -> {
+            for (int i = 0; i < 10; i++) {
+                Map<String, String> map = new HashMap<>();
+                map.put("title", "title" + i);
+                map.put("data", "data" + i);
+                map.put("data2", "data2" + i);
+                initDta.add(map);
             }
 
-            holder.title.setText(map.get("title"));
-            holder.content.setText(map.get("content"));
-
-            holder.layout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //点击后执行的事件
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
-
-                }
-            });
-
-            return view;
-        }
-
-        class ViewHolder{
-            LinearLayout layout;
-            TextView title;
-            TextView content;
-        }
+            if(page ==1){
+                list = initDta;
+            }else {
+                list.addAll(initDta);
+            }
+            adapter.setList(list);
+            adapter.notifyDataSetChanged();
+        }, 200);
     }
 
 }
