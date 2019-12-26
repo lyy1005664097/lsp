@@ -28,7 +28,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:networkSecurityConfig="@layout/network_security_config"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".activity.AllServiceActivity"/>
         <activity android:name=".activity.ElectricityServiceActivity" />

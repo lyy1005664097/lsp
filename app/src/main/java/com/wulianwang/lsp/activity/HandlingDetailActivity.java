@@ -33,9 +33,6 @@ public class HandlingDetailActivity extends BaseActivity {
     @Override
     public void initView() {
 
-//        gzxq=(TextView)findViewById(R.id.gzxq);
-//        zzmc=(TextView)findViewById(R.id.zzmc);
-//        gxnr=(TextView)findViewById(R.id.gxnr);
         xxn=(TextView)findViewById(R.id.xxn);
         xq=(TextView)findViewById(R.id.xq);
         button=(Button)findViewById(R.id.button);
