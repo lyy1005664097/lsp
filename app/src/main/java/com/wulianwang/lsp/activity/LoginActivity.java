@@ -92,14 +92,15 @@ public class LoginActivity extends BaseActivity {
                                 user.setUpdateTime(jsonUser.getString("updateTime"));
 
                                 SharedPrefsUtil.putValue(LoginActivity.this, "user", user);
-                                finish();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 }, null, map);
-
             }
         });
         tv.setOnClickListener(new View.OnClickListener() {

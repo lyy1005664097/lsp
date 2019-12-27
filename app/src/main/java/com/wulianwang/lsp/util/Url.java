@@ -8,4 +8,6 @@ public class Url {
     public static final String updatePwd = url + "/updatePwd";
 
     public static final String adduser = url + "/adduser";
+
+    public static final String getelectric = url + "/getelectric";
 }
