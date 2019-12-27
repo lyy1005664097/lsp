@@ -9,13 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wulianwang.lsp.R;
+import com.wulianwang.lsp.bean.User;
+import com.wulianwang.lsp.util.SharedPrefsUtil;
 
 /**
  * 孙帅达，张世浩 5.1
  */
 public class MyInfoActivity extends BaseActivity {
 
-    TextView l1, l2, l3, l4, l5;
+    TextView l1, l2, l3, l4, l5, l6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,15 @@ public class MyInfoActivity extends BaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MyInfoActivity.this, MyWorkListActivity.class);
                 startActivity(intent);
+            }
+        });
+        l6 = findViewById(R.id.exit);
+        l6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPrefsUtil.putValue(MyInfoActivity.this, "user", (User)null);
+                onBackPressed();
+                finish();
             }
         });
     }

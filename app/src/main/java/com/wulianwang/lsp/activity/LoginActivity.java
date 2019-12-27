@@ -56,7 +56,7 @@ public class LoginActivity extends BaseActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://123.7.17.91:7777/login";
+                String url = "http://192.168.0.151:8080/login";
                 Map<String, String> map = new HashMap<>();
                 map.put("phone", editText1.getText().toString().trim());
                 map.put("password", editText2.getText().toString().trim());

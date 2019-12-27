@@ -55,8 +55,12 @@ public class SharedPrefsUtil {
     }
 
     public static void putValue(Context context, String key, User value)  {
-        if(value instanceof Serializable) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(SETTING, context.MODE_PRIVATE);
+        if(value == null){
+            SharedPreferences.Editor sp =  context.getSharedPreferences(SETTING, Context.MODE_PRIVATE).edit();
+            sp.putString(key, null);
+            sp.apply();
+        }else {
+            SharedPreferences sharedPreferences = context.getSharedPreferences(SETTING, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             try {
@@ -64,14 +68,8 @@ public class SharedPrefsUtil {
                 oos.writeObject(value);//把对象写到流里
                 String temp = new String(Base64.encode(baos.toByteArray(), Base64.DEFAULT));
                 editor.putString(key, temp);
-                editor.commit();
+                editor.apply();
             } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }else {
-            try {
-                throw new Exception("User must implements Serializable");
-            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
