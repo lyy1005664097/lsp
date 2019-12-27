@@ -1,7 +1,5 @@
 package com.wulianwang.lsp.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,12 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wulianwang.lsp.R;
 import com.wulianwang.lsp.bean.User;
 import com.wulianwang.lsp.util.HttpUtil;
 import com.wulianwang.lsp.util.SharedPrefsUtil;
+import com.wulianwang.lsp.util.Url;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -56,11 +54,10 @@ public class LoginActivity extends BaseActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.0.151:8080/login";
                 Map<String, String> map = new HashMap<>();
                 map.put("phone", editText1.getText().toString().trim());
                 map.put("password", editText2.getText().toString().trim());
-                HttpUtil.post(url, null, new Callback() {
+                HttpUtil.post(Url.login, null, new Callback() {
                     @Override
                     public void onFailure(@NotNull Call call, @NotNull IOException e) {
                         e.printStackTrace();
@@ -110,7 +107,6 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(LoginActivity.this, ForgetPasswordActivity.class);
                 startActivity(intent);
-
             }
         });
         tv2.setOnClickListener(new View.OnClickListener() {
