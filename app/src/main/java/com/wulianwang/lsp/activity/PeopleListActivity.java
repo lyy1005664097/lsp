@@ -57,6 +57,7 @@ public class PeopleListActivity extends BaseActivity {
 
     private int page = 1;
     private boolean noMore = false;
+    private boolean isRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,9 +108,6 @@ public class PeopleListActivity extends BaseActivity {
                             user.setUpdateTime(jsonUser.getString("updateTime"));
                             initDta.add(user);
                         }
-                        if(initDta.size() < 10){
-                            noMore = true;
-                        }
                         if(page == 1){
                             list = initDta;
                         }else{
@@ -118,6 +116,19 @@ public class PeopleListActivity extends BaseActivity {
                         adapter.setList(list);
                         runOnUiThread(()->{
                             adapter.notifyDataSetChanged();
+                            if(isRefresh){
+                                if(initDta.size() < 10){
+                                    refreshLayout.finishRefreshWithNoMoreData();
+                                }else {
+                                    refreshLayout.finishRefresh();
+                                }
+                            }else {
+                                if(initDta.size() < 10){
+                                    refreshLayout.finishLoadMoreWithNoMoreData();
+                                }else {
+                                    refreshLayout.finishLoadMore();
+                                }
+                            }
                         });
                     }
                 } catch (JSONException e) {
@@ -140,20 +151,22 @@ public class PeopleListActivity extends BaseActivity {
         refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                if(!noMore) {
+           //     if(!noMore) {
+                isRefresh = false;
                     page++;
                     initData();
-                    refreshLayout.finishLoadMore();
-                }else {
-                    refreshLayout.finishLoadMore();
-                }
+                //    refreshLayout.finishLoadMore();
+            //    }else {
+                //    refreshLayout.finishLoadMore();
+            //    }
             }
 
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                isRefresh = true;
                 page = 1;
                 initData();
-                refreshLayout.finishRefresh();
+           //    refreshLayout.finishRefresh();
             }
         });
 
