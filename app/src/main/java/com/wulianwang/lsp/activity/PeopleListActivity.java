@@ -27,7 +27,9 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.wulianwang.lsp.R;
 import com.wulianwang.lsp.adapter.RecyclerAdapter;
 import com.wulianwang.lsp.bean.MyList;
+import com.wulianwang.lsp.bean.User;
 import com.wulianwang.lsp.util.HttpUtil;
+import com.wulianwang.lsp.util.Url;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -49,14 +51,12 @@ public class PeopleListActivity extends BaseActivity {
     SmartRefreshLayout refreshLayout;
     RecyclerView recyclerView;
 
-    private List<Map<String, String>> initDta;
-    private List<Map<String, String>> list = new ArrayList<>();
-    private LinearLayoutManager linearLayoutManager;
-    private RecyclerAdapter adapter;
-
-    private boolean isRefresh = true;
+    private List<User> initDta;
+    private List<User> list = new ArrayList<>();
+    private RecyclerAdapter<User> adapter;
 
     private int page = 1;
+    private boolean noMore = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,90 +71,60 @@ public class PeopleListActivity extends BaseActivity {
     @Override
     public void initData(){
         initDta = new ArrayList<>();
-        String url = "http://123.7.17.91:7777/getUserList?pageNo=" + page + "&pageSize=10";
+        String url = Url.getUserList + "?pageNo=" + page + "&pageSize=10";
 
-        //模拟网络请求数据
-        new Handler().postDelayed(new Runnable() {
+        HttpUtil.get(url, new Callback() {
             @Override
-            public void run() {
-                Log.d("Handle", "" + page);
-                for(int i = 10*(page-1); i < 10*page; i++){
-                    Map<String, String> map = new HashMap<>();
-                    map.put("title", "信阳" + i);
-                    map.put("data", "2019-12-15" + i);
-                    map.put("data2", "城东街道" + i);
-                    initDta.add(map);
-                }
-
-                if(page == 1){
-                    list = initDta;
-                }else{
-                    list.addAll(initDta);
-                }
-                adapter.setList(list);
-                adapter.notifyDataSetChanged();
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                e.printStackTrace();
             }
-        }, 200);
 
-
-         /*HttpUtil.get(url, new Callback() {
-             @Override
-             public void onFailure(Call call, IOException e) {
-                //请求失败后执行的代码
-                 Log.d("------","=====");
-                 e.printStackTrace();
-             }
-             @Override
-             public void onResponse(Call call, Response response) throws IOException {
-                 //请求成功后执行的代码
-                 String responseData = response.body().string();
-                 Log.d("Login", responseData);
-                 try {
-                     JSONObject jsonObject = new JSONObject(responseData);
-                     if(jsonObject.getInt("code") == 100){
-                         JSONArray jsonArray = jsonObject.getJSONObject("extend").getJSONObject("list").getJSONArray("records");
-                         for (int i = 0 ; i<jsonArray.length();i++){
-
-                             Map<String, String> map = new HashMap<>();
-                             map.put("title", jsonArray.getJSONObject(i).getString("nickname"));
-                             map.put("data", jsonArray.getJSONObject(i).getString("profession"));
-                             map.put("data2",  jsonArray.getJSONObject(i).getString("email"));
-                             initDta.add(map);
-                         }
-
-                         if(page == 1){
-                             list = initDta;
-                         }else {
-                             list.addAll(initDta);
-                         }
-                         adapter.setList(list);
-                         adapter.notifyDataSetChanged();
-                     }
-
-
-                    *//* runOnUiThread(new Runnable() {
-                         @Override
-                         public void run() {
-                             if(isRefresh){
-                                 list = initDta;
-                            //     adapter.notifyDataSetChanged();
-                                 refreshLayout.finishRefresh(true);
-                             }else{
-                                 list.addAll(initDta);
-                             //    adapter.notifyDataSetChanged();
-                                 refreshLayout.finishLoadMore(true);
-                             }
-                      //       adapter = new MyListAdapter(list, R.layout.person_item);
-                      //       recyclerView.setAdapter(adapter);
-                         }
-                     });
-*//*
-
-                 } catch (JSONException e) {
-                     e.printStackTrace();
-                 }
-             }
-         });*/
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                String responseData = response.body().string();
+                try {
+                    JSONObject jsonObject = new JSONObject(responseData);
+                    if(jsonObject.getInt("code") == 100){
+                        JSONArray jsonArray = jsonObject.getJSONObject("extend").getJSONObject("list").getJSONArray("records");
+                        for(int i = 0; i < jsonArray.length(); i++){
+                            JSONObject jsonUser = jsonArray.getJSONObject(i);
+                            User user = new User();
+                            user.setId(jsonUser.getInt("id"));
+                            user.setUserName(jsonUser.getString("username"));
+                            user.setPassword(jsonUser.getString("password"));
+                            user.setPhone(jsonUser.getString("phone"));
+                            user.setEmail(jsonUser.getString("email"));
+                            user.setNickName(jsonUser.getString("nickname"));
+                            user.setSex(jsonUser.getString("sex"));
+                            user.setAge(jsonUser.getInt("age"));
+                            user.setHeadImg(jsonUser.getString("headImg"));
+                            user.setProfession(jsonUser.getString("profession"));
+                            user.setRealName(jsonUser.getString("realName"));
+                            user.setRealEnterprise(jsonUser.getString("realEnterprise"));
+                            user.setRealElectro(jsonUser.getString("realElectro"));
+                            user.setRealOccupation(jsonUser.getString("realOccupation"));
+                            user.setBeginTime(jsonUser.getString("beginTime"));
+                            user.setUpdateTime(jsonUser.getString("updateTime"));
+                            initDta.add(user);
+                        }
+                        if(initDta.size() < 10){
+                            noMore = true;
+                        }
+                        if(page == 1){
+                            list = initDta;
+                        }else{
+                            list.addAll(initDta);
+                        }
+                        adapter.setList(list);
+                        runOnUiThread(()->{
+                            adapter.notifyDataSetChanged();
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @Override
@@ -170,9 +140,13 @@ public class PeopleListActivity extends BaseActivity {
         refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                page++;
-                initData();
-                refreshLayout.finishLoadMore();
+                if(!noMore) {
+                    page++;
+                    initData();
+                    refreshLayout.finishLoadMore();
+                }else {
+                    refreshLayout.finishLoadMore();
+                }
             }
 
             @Override
@@ -183,18 +157,18 @@ public class PeopleListActivity extends BaseActivity {
             }
         });
 
-        linearLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new RecyclerAdapter<Map<String, String>>(list, R.layout.person_item, (RecyclerView.ViewHolder holder, Map<String, String> data, int position) ->{
-            LinearLayout item = holder.itemView.findViewById(R.id.item);
+        adapter = new RecyclerAdapter<User>(list, R.layout.person_item, (RecyclerView.ViewHolder holder, User data, int position) ->{
             TextView textView1 = (TextView) holder.itemView.findViewById(R.id.textView);
             TextView textView2 = (TextView) holder.itemView.findViewById(R.id.textView2);
             TextView textView4 = (TextView) holder.itemView.findViewById(R.id.textView4);
-            textView1.setText(data.get("title"));
-            textView2.setText(data.get("data"));
-            textView4.setText(data.get("data2"));
-            item.setOnClickListener((View view)->{
+            textView1.setText(data.getNickName());
+            textView2.setText(data.getPhone());
+            textView4.setText("");
+            holder.itemView.setOnClickListener((View view)->{
                 Intent intent = new Intent(PeopleListActivity.this, PersonDetailActivity.class);
+                intent.putExtra("id", String.valueOf(data.getId()));
                 startActivity(intent);
             });
         });

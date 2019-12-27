@@ -75,6 +75,7 @@ public class LoginActivity extends BaseActivity {
                             if(jsonObject.getInt("code") == 100){
                                 JSONObject jsonUser = jsonObject.getJSONObject("extend").getJSONObject("user");
                                 User user = new User();
+                                user.setId(jsonUser.getInt("id"));
                                 user.setUserName(jsonUser.getString("username"));
                                 user.setPassword(jsonUser.getString("password"));
                                 user.setPhone(jsonUser.getString("phone"));

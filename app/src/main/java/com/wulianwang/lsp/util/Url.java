@@ -10,4 +10,8 @@ public class Url {
     public static final String adduser = url + "/adduser";
 
     public static final String getelectric = url + "/getelectric";
+
+    public static final String getUserList = url + "/getUserList";
+
+    public static final String getUserByID = url + "/getUserByID";
 }
